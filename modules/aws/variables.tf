@@ -1,4 +1,10 @@
-variable "vpc" {}
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+variable "aws_region" {}
+variable "vpcs" {}
+variable "zones" {}
+variable "records_per_zone" {}
+variable "record_a_values" {}
 variable "instances_per_subnet" {}
-variable "instance_type" {}
-variable "azs" {}
+variable "aws_azs" {}
+variable "aws_instance_type" {}

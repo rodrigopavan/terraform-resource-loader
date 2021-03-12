@@ -1,11 +1,28 @@
 variable "vpcs" {
-    description = "Number of desired vpcs and subnets to be created"
+    description = "Vpcs and subnets to be created"
     type = map(object({
       cidr      = string
       name      = string
       subnets   = number
       bits      = number
     }))
+}
+
+variable "zones" {
+    description = "Numver of zones to be created"
+    type = number
+}
+
+variable "records_per_zone" {
+    description = "Number of records per zone to be created"
+    type = number
+    default = 1
+}
+
+variable "record_a_values" {
+    description = "Values used for A records"
+    type = list(string)
+    default = ["127.0.0.1","127.0.0.2","127.0.0.3","127.0.0.4","127.0.0.5"]
 }
 
 variable "instances_per_subnet" {
@@ -17,11 +34,13 @@ variable "instances_per_subnet" {
 variable "aws_access_key" {
     description = "AWS Access Key"
     type = string
+    default = ""
 }
 
 variable "aws_secret_key" {
     description = "AWS Secret Key"
     type = string
+    default = ""
 }
 
 variable "aws_region" {
